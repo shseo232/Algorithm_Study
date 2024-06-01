@@ -1,4 +1,5 @@
 package week_1.최대값;
+//P2566
 
 import java.util.Scanner;
 

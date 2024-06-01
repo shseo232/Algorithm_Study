@@ -1,3 +1,6 @@
+package week_1.구간합구하기;
+//P11720
+
 import java.util.Scanner;
 
 public class Main {

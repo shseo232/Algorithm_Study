@@ -1,6 +1,5 @@
-package week_1.구간합구하기;
-//P11720
-
+package week_1.숫자의합구하기;
+//P1546
 import java.util.Scanner;
 
 public class Main {

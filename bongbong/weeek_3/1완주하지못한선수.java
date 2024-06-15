@@ -1,3 +1,4 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42576
 package week_3.완주하지못한선수;
 
 import java.util.HashMap;

@@ -53,7 +53,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -61,7 +60,7 @@ public class Main {
         StringTokenizer st = new StringTokenizer(bf.readLine());
         int k = Integer.parseInt(st.nextToken());
         int sum = 0;
-        List<Integer> list = new ArrayList<>();
+        List<Integer> stack = new ArrayList<>();
 
 
 
@@ -69,13 +68,13 @@ public class Main {
             st = new StringTokenizer(bf.readLine());
             int temp = Integer.parseInt(st.nextToken());
             if (temp == 0) {
-                list.remove(list.size() - 1);
+                stack.remove(stack.size() - 1);
             } else {
-                list.add(temp);
+                stack.add(temp);
             }
         }
 
-        for (int i : list) {
+        for (int i : stack) {
             sum += i;
         }
 

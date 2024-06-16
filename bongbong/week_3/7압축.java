@@ -73,7 +73,6 @@ class Solution {
     public int[] solution(String msg) {
         List<Integer> answer = new ArrayList<>();
 
-        int dic_idx = 27;
         int idx = 0;
 
         // key : 알파벳, value : 대문자

@@ -23,6 +23,7 @@ class Solution {
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < prices.length; i++) {
+            // prices[i] 보다 peek이 큰 경우 -> peek을 pop하고 answer에 i-peek 으로 바로 저장
             while (!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
                 answer[stack.peek()] = i - stack.peek();
                 stack.pop();
@@ -31,6 +32,7 @@ class Solution {
         }
 
         while (!stack.isEmpty()) {
+            // stack에 쌓인 값들은 떨어진적이 없는 값들임 -> 유지한 시간을 계산해서 answer에 저장
             answer[stack.peek()] = prices.length - stack.peek() - 1;
             stack.pop();
         }

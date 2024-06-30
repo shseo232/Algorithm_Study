@@ -1,47 +1,51 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-public class Main {
-	    public static void main(String[] args) throws IOException {
-	        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	        StringTokenizer st = new StringTokenizer(br.readLine());
+import java.util.*;
+import java.io.*;
 
-	        int N = Integer.parseInt(st.nextToken()); // 배열 길이
-	        int M = Integer.parseInt(st.nextToken()); // 테스트케이스 몇번 돌릴지(for문에 사용)
-	        
-	        
-	        st = new StringTokenizer(br.readLine());
-	        int [] arr = new int[N];
-	        
-	        for(int i = 0 ; i<N; i++){
-	            arr[i] = Integer.parseInt(st.nextToken());
-	        }
-	        int sum = 0;
-	        int[]sumnum = new int[arr.length];
-	        for(int i = 0; i<arr.length; i++) {
-	        	if(i==0) {
-	        		sumnum[i]= arr[0];
-	        	}
-	        	else {
-	        		sumnum[i] = arr[i] + sumnum[i-1];
-	        	}
-	        }
-	        
-	        for(int i = 0 ; i<M; i++){
-	            st = new StringTokenizer(br.readLine());
-	            int a = Integer.parseInt(st.nextToken());//1
-	            int b = Integer.parseInt(st.nextToken());//3
-	            if(a==1) {
-	            	sum = sumnum[b-1]-0;
-	            }
-	            else if(a==b) {
-	            	sum = arr[a-1];
-	            }
-	            else {
-	            	sum = sumnum[b-1] - sumnum[a-2];
-	            }
-		        System.out.println(sum);
-	        }
-	    }
+class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+
+		int a = Integer.parseInt(st.nextToken());
+		int b = Integer.parseInt(st.nextToken());
+		int arr[][] = new int[a + 1][a + 1];
+		int[][] sum_arr = new int[a + 1][a + 1];
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 1; i <= a; i++) {
+			StringTokenizer st1 = new StringTokenizer(br.readLine());
+			for (int j = 1; j <= a; j++) {
+				arr[i][j] = Integer.parseInt(st1.nextToken()); // 표본 배열 완성
+			}
+		}
+
+		for (int i = 1; i < sum_arr.length; i++) {
+			for (int j = 1; j < sum_arr.length; j++) {
+				if (j == 0) {
+					sum_arr[i][j] = 0;
+				} else if (j == 1) {
+					sum_arr[i][j] = arr[i][j];
+				} else {
+					sum_arr[i][j] = arr[i][j] + sum_arr[i][j - 1]; // 누적합 배열 완성
+				}
+			}
+		}
+
+		for (int i = 0; i < b; i++) {
+			StringTokenizer st1 = new StringTokenizer(br.readLine());
+			int sum = 0;
+			int x1 = Integer.parseInt(st1.nextToken());
+			int y1 = Integer.parseInt(st1.nextToken());
+			int x2 = Integer.parseInt(st1.nextToken());
+			int y2 = Integer.parseInt(st1.nextToken());
+
+			for (int j = x1; j <= x2; j++) {
+				sum += sum_arr[j][y2] - sum_arr[j][y1 - 1];
+			}
+			sb.append(sum + "\n");
+		}
+		System.out.print(sb);
+	}
+
 }

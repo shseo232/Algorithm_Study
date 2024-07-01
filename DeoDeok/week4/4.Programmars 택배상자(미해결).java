@@ -1,18 +1,21 @@
 import java.util.*;
-
 class Solution {
-    public int solution(int[] order) {
+     public static int solution(int[] order) {
         int answer = 0;
-        Stack<Integer> stack = new Stack();        
-        int num=0;
-        for(int i=1; i<=order.length;i++){
-            stack.push(i);
-            while(!stack.isEmpty() && stack.peek() == order[num]){
-                stack.pop();
-                num++;
-                answer++;
-                break;
-            }
+        Stack<Integer> stack = new Stack();
+        int num=1;
+        for(int i=0; i<order.length;i++){
+           while(num<=order[i]){
+               stack.push(num);
+               num++;
+           }
+           if(!stack.isEmpty()&&stack.peek()==order[i]){
+               stack.pop();
+               answer++;
+           }
+           else{
+               break;
+           }
         }
         return answer;
     }

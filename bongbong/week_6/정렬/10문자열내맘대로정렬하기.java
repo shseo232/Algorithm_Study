@@ -35,6 +35,7 @@ class Solution {
             @Override
             public int compare(String s1, String s2) {
                 // 먼저 n번째 문자를 비교합니다.
+                // 앞의 객체가 더 작다면 음수, 같다면 0, 크다면 양수
                 if (s1.charAt(n) != s2.charAt(n)) {
                     return s1.charAt(n) - s2.charAt(n);
                 }

@@ -30,14 +30,7 @@ class Solution {
     public String[] solution(String[] strings, int n) {
         String[] answer = new String[strings.length];
 
-        Map<Integer,Character> map = new HashMap<>();
-
-        for (int i = 0; i < strings.length; i++) {
-            map.put(i, strings[i].charAt(n));
-        }
-
-        List<Integer> list = new ArrayList<>(map.keySet());
-        // 공부!~!~!
+        // comparator, compareTo 사용
         Arrays.sort(strings, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
@@ -50,8 +43,8 @@ class Solution {
             }
         });
 
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = strings[list.get(i)];
+        for (int i = 0; i < strings.length; i++) {
+            answer[i] = strings[i];
         }
 
 

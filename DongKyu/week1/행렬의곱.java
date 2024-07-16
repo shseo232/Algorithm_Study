@@ -9,11 +9,9 @@ class Solution {
 				for(int l =0; l<arr2.length;l++) {
 					sum += arr1[i][l]*arr2[l][j];
 				}
-				
 				answer[i][j] = sum;
 			}
 		}
-        
         return answer;
     }
 }

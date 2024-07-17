@@ -1,0 +1,15 @@
+-- 코드를 작성해주세요
+SELECT ID, 
+    CASE
+        WHEN A/B > 0.75 THEN 'LOW'
+        WHEN A/B > 0.5 AND A/B <=0.75 THEN 'MEDIUM'
+        WHEN A/B > 0.25 AND A/B <=0.50 THEN 'HIGH'
+        WHEN A/B <= 0.25 THEN 'CRITICAL'
+    END AS COLONY_NAME
+FROM (
+    SELECT ID, 
+        RANK() OVER (ORDER BY SIZE_OF_COLONY DESC) AS A, 
+        COUNT(*) OVER () AS B
+    FROM ECOLI_DATA
+) AS BB
+ORDER BY ID ASC

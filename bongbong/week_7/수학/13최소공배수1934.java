@@ -46,14 +46,14 @@ public class Main {
             num[i][1] = Integer.parseInt(st.nextToken());
             // 둘 중 작은수를 1씩 감소하면서 A,B에서 나눈 나머지가 둘다 0인 경우
             int min = Math.min(num[i][0], num[i][1]);
-            int GCF = 0; //최대공약수
+            int GCD = 0; //최대공약수
             for (int j = min; j > 0; j--) {
                 if (num[i][0] % j == 0 && num[i][1] % j == 0) {
-                    GCF = j;
+                    GCD = j;
                     break;
                 }
             }
-            if (GCF > 0)
+            if (GCD > 0)
                 sb.append(num[i][0] * num[i][1] / GCF).append("\n");
         }
         System.out.println(sb);

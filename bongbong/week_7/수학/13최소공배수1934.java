@@ -25,7 +25,7 @@ https://www.acmicpc.net/problem/1934
 221
  */
 
-package week_7.수학.최소공배수;
+package week_7.수학.최소공배수1934;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,15 +46,15 @@ public class Main {
             num[i][1] = Integer.parseInt(st.nextToken());
             // 둘 중 작은수를 1씩 감소하면서 A,B에서 나눈 나머지가 둘다 0인 경우
             int min = Math.min(num[i][0], num[i][1]);
-            int GCD = 0; //최대공약수
+            int GCF = 0; //최대공약수
             for (int j = min; j > 0; j--) {
                 if (num[i][0] % j == 0 && num[i][1] % j == 0) {
-                    GCD = j;
+                    GCF = j;
                     break;
                 }
             }
-            if (GCD > 0)
-                sb.append(num[i][0] * num[i][1] / GCF).append("\n");
+
+            sb.append(num[i][0] * num[i][1] / GCF).append("\n");
         }
         System.out.println(sb);
     }

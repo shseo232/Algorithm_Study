@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
 import static java.util.Collections.list;
 
 /*
-https://www.acmicpc.net/problem/1145
 문제
 다섯 개의 자연수가 있다. 이 수의 적어도 대부분의 배수는 위의 수 중 적어도 세 개로 나누어 지는 가장 작은 자연수이다.
 

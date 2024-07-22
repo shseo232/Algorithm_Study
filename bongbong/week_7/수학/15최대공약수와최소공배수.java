@@ -35,15 +35,15 @@ public class Main {
         long b = Integer.parseInt(st.nextToken());
         // 둘 중 작은수를 1씩 감소하면서 A,B에서 나눈 나머지가 둘다 0인 경우
         long min = Math.min(a, b);
-        long GCF = 0; //최대공약수
+        long GCD = 0; //최대공약수
         for (long j = min; j > 0; j--) {
             if (a % j == 0 && b % j == 0) {
-                GCF = j;
+                GCD = j;
                 break;
             }
         }
-        System.out.println(GCF);
-        System.out.println(a * b / GCF);
+        System.out.println(GCD);
+        System.out.println(a * b / GCD);
     }
 
 }
